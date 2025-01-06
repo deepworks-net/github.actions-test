@@ -1,0 +1,8 @@
+name: Version Calculation Workflow Test
+
+on:
+  workflow_dispatch:  # allows manual triggering
+
+jobs:
+  calculate-version:
+    uses: deepworks-net/github.toolkit/.github/workflows/version_calculator.yml@v1

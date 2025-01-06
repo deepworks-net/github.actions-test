@@ -1,0 +1,20 @@
+name: Version Calculation Action Test
+
+on:
+  workflow_dispatch:  # allows manual triggering
+
+jobs:
+  calculate-version:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ github.repository }}  # Ensures the current repository
+          ref: main
+          fetch-depth: 0
+
+      - name: Calculate next version
+        id: version
+        uses: deepworks-net/github.toolkit/actions/version_calculator@v1
